@@ -1,39 +1,17 @@
-import React, { Component } from 'react';
-import { NICE, SUPER_NICE } from './colors';
+import React,{ Component } from "react";
+import Home from './Home';
+import './style/main.scss';
+class App extends Component {
 
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.interval = setInterval(() => this.tick(), 1000);
-  }
-
-  tick() {
-    this.setState({
-      counter: this.state.counter + this.props.increment
-    });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
+  render(){
     return (
-      <h1 style={{ color: this.props.color }}>
-        Counter ({this.props.increment}): {this.state.counter}
-      </h1>
-    );
+        <div className="app-wrap">
+          <div className="app-header">my header</div>
+          <Home />
+          <div className= "app-footer"> my footer</div>
+        </div>
+      )
   }
 }
 
-export class App extends Component {
-  render() {
-    return (
-      <div>
-        <Counter increment={1} color={NICE} />
-        <Counter increment={5} color={SUPER_NICE} />
-      </div>
-    );
-  }
-}
+export default App;
