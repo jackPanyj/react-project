@@ -10,7 +10,6 @@ class App extends Component {
     return (
         <div className="app-wrap">
           <NavBar />
-          <div className="app-header">my header</div>
           <Home />
           <div className= "app-footer"> my footer</div>
         </div>
