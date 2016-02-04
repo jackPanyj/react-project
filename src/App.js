@@ -7,10 +7,11 @@ injectTapEventPlugin();
 class App extends Component {
 
   render(){
+    console.log(this.props.children);
     return (
         <div className="app-wrap">
           <NavBar />
-          <Home />
+          {this.props.children}
           <div className= "app-footer"> my footer</div>
         </div>
       )

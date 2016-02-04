@@ -2,6 +2,13 @@ import React,{ Component } from "react";
 import Tabs from 'material-ui/lib/tabs/tabs';
 import Tab from 'material-ui/lib/tabs/tab';
 class NavBar extends Component {
+	constructor(props, context){
+		super(props, context);
+	}
+	_handleTabsChange(value){
+		this.context.router.push(value);
+		console.log(this);
+	}
 
   render(){
   	let styles = {
@@ -22,14 +29,17 @@ class NavBar extends Component {
   	};
     return (
     	<div className="app-header">
-    		<Tabs style={styles.tabs} tabItemContainerStyle={{backgroundColor:'transprent'}} inkBarStyle={styles.inkBar}>
-    			<Tab style={styles.tab} label="Home" />
-    			<Tab style={styles.tab} label="Account" />
-    			<Tab style={styles.tab} label="About" />
+    		<Tabs style={styles.tabs} tabItemContainerStyle={{backgroundColor:'transprent'}}
+    		 inkBarStyle={styles.inkBar} onChange={this._handleTabsChange.bind(this)}>
+    			<Tab style={styles.tab} label="Home" value="/home" />
+    			<Tab style={styles.tab} label="Account" value="/account" />
+    			<Tab style={styles.tab} label="About" value="/about" />
     		</Tabs>
     	</div>		
       )
   }
 }
-
+NavBar.contextTypes = {
+	router: React.PropTypes.object.isRequired
+};
 export default NavBar;
