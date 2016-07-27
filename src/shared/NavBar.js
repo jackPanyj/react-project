@@ -28,7 +28,6 @@ class NavBar extends Component {
 
 	_handleTabsChange(value){
 		this.context.router.push(value);
-		console.log(this);
 	}
 
   render(){
@@ -56,7 +55,7 @@ class NavBar extends Component {
     			<Tab style={styles.tab} label="Account" value="/account" />
     			<Tab style={styles.tab} label="About" value="/about" />
     		</Tabs>
-    	</div>		
+    	</div>
       )
   }
 }
