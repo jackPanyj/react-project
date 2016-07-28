@@ -12,10 +12,8 @@ class BlogDetail extends Component {
       .then(comment => this.setState({comment}) )
   }
   render () {
-    const html = marked(this.state.comment[0].body)
-    return (
-      <div dangerouslySetInnerHTML = {{__html: html}}></div>
-    )
+    if (!!this.state.comment) return <div dangerouslySetInnerHTML = {{__html: marked(this.state.comment[0].body)}}></div>
+    return <div></div>
   }
 }
 export default BlogDetail
