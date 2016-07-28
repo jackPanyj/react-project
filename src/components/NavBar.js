@@ -22,7 +22,7 @@ class NavBar extends Component {
 
 	_getSelectedIndex(){
 		return this.context.router.isActive('/home')? '/home':
-		this.context.router.isActive('/account')? '/account':
+		this.context.router.isActive('/blog')? '/blog':
 		this.context.router.isActive('/about')?'/about':'/home';
 	}
 
@@ -52,7 +52,7 @@ class NavBar extends Component {
     		<Tabs style={styles.tabs} tabItemContainerStyle={{backgroundColor:'transprent'}}
     		 inkBarStyle={styles.inkBar} onChange={this._handleTabsChange.bind(this)} value={this.state.value}>
     			<Tab style={styles.tab} label="Home" value="/home" />
-    			<Tab style={styles.tab} label="Account" value="/account" />
+    			<Tab style={styles.tab} label="Blog" value="/blog" />
     			<Tab style={styles.tab} label="About" value="/about" />
     		</Tabs>
     	</div>

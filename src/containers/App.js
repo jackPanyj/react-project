@@ -1,9 +1,9 @@
 import React,{ Component } from "react";
 import Home from './Home';
-import NavBar from './shared/NavBar';
+import NavBar from '../components/NavBar';
 import AppBar from 'material-ui/lib/app-bar';
-import './style/main.scss';
-import AppLeftNav from './shared/AppLeftNav';
+import '../style/main.scss';
+import AppLeftNav from '../components/AppLeftNav';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 class App extends Component {
@@ -12,17 +12,17 @@ class App extends Component {
   }
 
   _onLeftIconButtonTouchTap(){
-   this.refs.leftNav.handleToggle(); 
+   this.refs.leftNav.handleToggle();
   }
 
   _getAppBar(){
     let title = this.context.router.isActive('/home')?'Home':
-    this.context.router.isActive('/account')?'Account':
+    this.context.router.isActive('/blog_list')?'Blog':
     this.context.router.isActive('/about')?'About':'Home';
     return (
-      <AppBar title={title} 
+      <AppBar title={title}
       onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap.bind(this)} />
-    )    
+    )
   }
 
   componentWillMount(){
